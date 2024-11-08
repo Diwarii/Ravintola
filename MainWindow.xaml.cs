@@ -19,6 +19,7 @@ namespace Ravintola
         public MainWindow()
         {
             InitializeComponent();
+            Console.WriteLine("Hello World");
         }
     }
 }
