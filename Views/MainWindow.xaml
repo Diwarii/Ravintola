@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Ravintola"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Title="Ravintola" Height="768" Width="1280">
+        Title="Ravintola"
+        Height="768"
+        Width="1280">
     <Grid>
         <!--Разделение на колонки-->
 
@@ -18,8 +19,8 @@
 
         <!--Боковая панель навигации-->
 
-        <StackPanel Grid.Column="0" Background="#F5F5DC">
-            
+        <StackPanel Grid.Column="0" Background="#F5F5DC" Orientation="Vertical">
+
             <!--Логотип приложения-->
             <Border Background="#881A1A"
                     Margin="0,20,15,0"
@@ -31,6 +32,16 @@
                     Margin="50,3,0,0"
                     Foreground="#F5F5DC">R A V I N T O L A</TextBlock>
             </Border>
+
+            <!--Кнопка профиля администратора-->
+            <Button Content="Профиль"
+                    Style="{StaticResource Button}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
             <!--Кнопки для навигации-->
             <StackPanel Margin="0,75,0,0">
@@ -72,7 +83,7 @@
         <!--Основное окно приложения-->
 
         <Grid Grid.Column="1" Background="#881A1A">
-
+            
         </Grid>
 
     </Grid>
