@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Ravintola"
+             xmlns:views="clr-namespace:Ravintola.Views"
+             xmlns:viewmodels="clr-namespace:Ravintola.ViewModels"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         
@@ -36,6 +38,26 @@
             </Style.Triggers>
         </Style>
         
+        <!--DataTemplate-->
+        <DataTemplate DataType="{x:Type viewmodels:DishesViewModel}">
+            <views:DishesView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:ProductsViewModel}">
+            <views:ProductsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:OrdersViewModel}">
+            <views:OrdersView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:ReportsViewModel}">
+            <views:ReportsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:ProfileViewModel}">
+            <views:ProfileView/>
+        </DataTemplate>
         
     </Application.Resources>
 </Application>
