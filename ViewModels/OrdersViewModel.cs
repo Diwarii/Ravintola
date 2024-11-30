@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ravintola.ViewModels
 {
-    class OrdersViewModel
+    public class OrdersViewModel : BaseViewModel
     {
+
     }
 }
