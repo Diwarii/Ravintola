@@ -7,6 +7,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="980">
     <Grid>
-        <TextBlock Text="Тут будут блюда" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Green"/>
+
+        <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Button Width="150" Height="200">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=FoodName}"/>
+                                <TextBlock Text="{Binding Path=FoodCost}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Width="150" Height="200">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=FoodName}"/>
+                                <TextBlock Text="{Binding Path=FoodCost}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Width="150" Height="200">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=FoodName}"/>
+                                <TextBlock Text="{Binding Path=FoodCost}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </UserControl>
