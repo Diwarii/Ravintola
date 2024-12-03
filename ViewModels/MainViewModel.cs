@@ -3,6 +3,7 @@ using Ravintola.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,12 @@ namespace Ravintola.ViewModels
             get { return _selectedViewModel; }
             set { _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel)); }
         }
-
         public ICommand UpdateViewCommand { get; set; }
+
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
+            Global.db.Database.EnsureCreated();
         }
     }
 }

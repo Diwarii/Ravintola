@@ -35,7 +35,8 @@
 
                 <!--Кнопки для навигации-->
                 <StackPanel Margin="0,75,0,0">
-                    <Button Style="{StaticResource Button}" Content="БЛЮДА" Name="DishesButton" Command="{Binding UpdateViewCommand}" CommandParameter="Dishes">
+                    <Button Style="{StaticResource Button}" Content="БЛЮДА" Name="DishesButton" 
+                            Command="{Binding UpdateViewCommand}" CommandParameter="Dishes">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="25"/>
@@ -43,7 +44,8 @@
                         </Button.Resources>
                     </Button>
 
-                    <Button Style="{StaticResource Button}" Content="ПРОДУКТЫ" Name="ProductsButton" Command="{Binding UpdateViewCommand}" CommandParameter="Products">
+                    <Button Style="{StaticResource Button}" Content="ПРОДУКТЫ" Name="ProductsButton" 
+                            Command="{Binding UpdateViewCommand}" CommandParameter="Products">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="25"/>
@@ -51,7 +53,8 @@
                         </Button.Resources>
                     </Button>
 
-                    <Button Style="{StaticResource Button}" Content="ЗАКАЗЫ" Name="OrderButton" Command="{Binding UpdateViewCommand}" CommandParameter="Orders">
+                    <Button Style="{StaticResource Button}" Content="ЗАКАЗЫ" Name="OrderButton" 
+                            Command="{Binding UpdateViewCommand}" CommandParameter="Orders">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="25"/>
@@ -59,7 +62,8 @@
                         </Button.Resources>
                     </Button>
 
-                    <Button Style="{StaticResource Button}" Content="ОТЧЁТЫ" Name="ReportsButton" Command="{Binding UpdateViewCommand}" CommandParameter="Reports">
+                    <Button Style="{StaticResource Button}" Content="ОТЧЁТЫ" Name="ReportsButton" 
+                            Command="{Binding UpdateViewCommand}" CommandParameter="Reports">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="25"/>
@@ -82,7 +86,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            
+
         </Grid>
 
         <!--Основное окно приложения-->

@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Ravintola.ViewModels
 {
-    public class BaseViewModel : Property
+    public class Global
     {
-        public BaseViewModel()
-        {
-            Global.db = new ApplicationContext();
-        }
+        public static ApplicationContext db { get; set; }
     }
 }

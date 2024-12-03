@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ravintola.ViewModels;
 
 namespace Ravintola.Views
 {
@@ -23,6 +24,7 @@ namespace Ravintola.Views
         public DishesView()
         {
             InitializeComponent();
+            DataContext = new DishesViewModel();
         }
     }
 }

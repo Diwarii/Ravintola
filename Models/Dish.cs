@@ -19,5 +19,13 @@ namespace Ravintola.Models
         // Значение стоимости для Блюд
         private double _foodCost;
         public double FoodCost { get { return _foodCost; } set { _foodCost = value; OnPropertyChanged("FoodCost"); } }
+
+        public Dish(uint id, string foodName, double foodCost)
+        {
+            Id = id;
+            FoodName = foodName;
+            FoodCost = foodCost;
+        }
+        public Dish() { }
     }
 }
