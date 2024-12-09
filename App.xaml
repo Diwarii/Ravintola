@@ -17,7 +17,7 @@
         <Style TargetType="Button" x:Key="Button">
             <Setter Property="Background" Value="#A74444"/>
             <Setter Property="FontFamily" Value="{StaticResource Montserrat}"/>
-            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontSize" Value="26"/>
             <Setter Property="Foreground" Value="#F5F5DC"/>
             <Setter Property="Height" Value="50"/>
             <Setter Property="Margin" Value="25,25,15,0"/>
@@ -57,6 +57,10 @@
 
         <DataTemplate DataType="{x:Type viewmodels:ProfileViewModel}">
             <views:ProfileView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
+            <views:SettingsView/>
         </DataTemplate>
         
     </Application.Resources>

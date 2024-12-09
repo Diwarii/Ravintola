@@ -7,9 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="980">
     <Grid>
-        <TextBlock Text="Тут будут продукты и сроки годности" FontSize="28"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Foreground="Green"/>
+        <ListView ItemsSource="{Binding Products}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Button Width="150" Height="200">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock Text="{Binding Path=Count}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

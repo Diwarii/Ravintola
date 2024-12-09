@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Ravintola.ViewModels;
 
 namespace Ravintola.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ProductsView.xaml
+    /// Логика взаимодействия для SettingsView.xaml
     /// </summary>
-    public partial class ProductsView : UserControl
+    public partial class SettingsView : UserControl
     {
-        public ProductsView()
+        public SettingsView()
         {
             InitializeComponent();
-            DataContext = new ProductsViewModel();
         }
     }
 }

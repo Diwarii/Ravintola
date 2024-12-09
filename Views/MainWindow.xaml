@@ -35,7 +35,7 @@
 
                 <!--Кнопки для навигации-->
                 <StackPanel Margin="0,75,0,0">
-                    <Button Style="{StaticResource Button}" Content="БЛЮДА" Name="DishesButton" 
+                    <Button Style="{StaticResource Button}" Content="DISHES" Name="DishesButton" 
                             Command="{Binding UpdateViewCommand}" CommandParameter="Dishes">
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -44,7 +44,7 @@
                         </Button.Resources>
                     </Button>
 
-                    <Button Style="{StaticResource Button}" Content="ПРОДУКТЫ" Name="ProductsButton" 
+                    <Button Style="{StaticResource Button}" Content="PRODUCTS" Name="ProductsButton" 
                             Command="{Binding UpdateViewCommand}" CommandParameter="Products">
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -53,7 +53,7 @@
                         </Button.Resources>
                     </Button>
 
-                    <Button Style="{StaticResource Button}" Content="ЗАКАЗЫ" Name="OrderButton" 
+                    <Button Style="{StaticResource Button}" Content="ORDERS" Name="OrderButton" 
                             Command="{Binding UpdateViewCommand}" CommandParameter="Orders">
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -62,7 +62,7 @@
                         </Button.Resources>
                     </Button>
 
-                    <Button Style="{StaticResource Button}" Content="ОТЧЁТЫ" Name="ReportsButton" 
+                    <Button Style="{StaticResource Button}" Content="REPORTS" Name="ReportsButton" 
                             Command="{Binding UpdateViewCommand}" CommandParameter="Reports">
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -75,11 +75,24 @@
             </StackPanel>
             
             <!--Кнопка профиля администратора-->
-            <Button Content="Профиль" Style="{StaticResource Button}"
+            <Button Content="PROFILE" Style="{StaticResource Button}"
                     VerticalAlignment="Bottom"
                     Margin="0,0,0,25"
                     Width="260"
                     Command="{Binding UpdateViewCommand}" CommandParameter="Profile">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <!--Кнопка настроек для добавления элементов в блюда и продукты-->
+            <Button Content="SETTINGS" Style="{StaticResource Button}"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,100"
+                    Width="260"
+                    Command="{Binding UpdateViewCommand}" CommandParameter="Settings">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="25"/>
@@ -92,8 +105,7 @@
         <!--Основное окно приложения-->
 
         <Grid Grid.Column="1" Background="#881A1A">
-            <ContentControl Content="{Binding SelectedViewModel}" VerticalAlignment="Center"
-                            HorizontalAlignment="Center"/>
+            <ContentControl Content="{Binding SelectedViewModel}"/>
         </Grid>
 
     </Grid>

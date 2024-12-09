@@ -13,13 +13,6 @@ namespace Ravintola.ViewModels
     class DishesViewModel : BaseViewModel
     {
         public ObservableCollection<Dish> Dishes { get; set; } = new ObservableCollection<Dish>();
-
-        private Dish selectedDish;
-        public Dish SelectedDish
-        {
-            get { return selectedDish; }
-            set { selectedDish = value; OnPropertyChanged("SelectedDish"); }
-        }
         public DishesViewModel()
         {
             Global.db.Database.EnsureCreated();

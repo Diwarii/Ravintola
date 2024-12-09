@@ -75,6 +75,10 @@ namespace Ravintola.Models
             {
                 viewModel.SelectedViewModel = new ProfileViewModel();
             }
+            else if(parameter.ToString() == "Settings")
+            {
+                viewModel.SelectedViewModel = new SettingsViewModel();
+            }
         }
     }
 }
