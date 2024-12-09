@@ -1,0 +1,65 @@
+﻿<Window x:Class="Ravintola.Views.RemoveEditDishView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ravintola.Views"
+        mc:Ignorable="d"
+        Title="RemoveEditDishView" Height="768" Width="980"
+        Background="#881A1A"
+        ResizeMode="NoResize">
+    <Grid>
+
+        <Border CornerRadius="25" Background="#f5f5dc"
+                Width="900" Height="680">
+            <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}"
+                      Background="#f5f5dc" Margin="0,0,0,150">
+                <ListView.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25,25,0,0"/>
+                    </Style>
+                </ListView.Resources>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Button Width="150" Height="150">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="25"/>
+                                    </Style>
+                                </Button.Resources>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Path=FoodName}"/>
+                                    <TextBlock Text="{Binding Path=FoodCost}"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <Button Content="Delete" Style="{StaticResource Button}"
+                Width="230" Height="100" VerticalAlignment="Bottom"
+                HorizontalAlignment="Left" Margin="75,0,0,60"
+                Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedDish}"
+                IsDefault="True">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Content="Cancel" Style="{StaticResource Button}"
+                Width="230" Height="100" VerticalAlignment="Bottom"
+                HorizontalAlignment="Left" Margin="325,0,0,60"
+                IsCancel="True">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

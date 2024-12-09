@@ -18,18 +18,6 @@
                                 <TextBlock Text="{Binding Path=FoodCost}"/>
                             </StackPanel>
                         </Button>
-                        <Button Width="150" Height="200">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=FoodName}"/>
-                                <TextBlock Text="{Binding Path=FoodCost}"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Width="150" Height="200">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=FoodName}"/>
-                                <TextBlock Text="{Binding Path=FoodCost}"/>
-                            </StackPanel>
-                        </Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
