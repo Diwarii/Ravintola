@@ -12,18 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Ravintola.ViewModels;
+using Ravintola.Models;
 
 namespace Ravintola.Views
 {
     /// <summary>
-    /// Логика взаимодействия для RemoveEditDishView.xaml
+    /// Логика взаимодействия для EditDishView.xaml
     /// </summary>
-    public partial class RemoveEditDishView : Window
+    public partial class EditDishView : Window
     {
-        public RemoveEditDishView()
+        public EditDishView()
         {
             InitializeComponent();
             DataContext = new DishesViewModel();
+        }
+        public Dish Dish { get; private set; }
+        public EditDishView(Dish dish)
+        {
+            InitializeComponent();
+            Dish = dish;
+            DataContext = Dish;
         }
     }
 }

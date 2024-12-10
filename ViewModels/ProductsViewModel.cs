@@ -15,6 +15,30 @@ namespace Ravintola.ViewModels
     {
         public ObservableCollection<Product> Products { get; set; } = new ObservableCollection<Product>();
 
+        private Product selectedProduct;
+        public Product SelectedProduct
+        {
+            get => selectedProduct;
+            set { selectedProduct = value; OnPropertyChanged("SelectedProduct"); }
+        }
+
+        private RelayCommand _deleteProduct;
+        public RelayCommand DeleteProduct
+        {
+            get
+            {
+                return _deleteProduct ??
+                (_deleteProduct = new RelayCommand(obj =>
+                {
+                    if (SelectedProduct != null)
+                    {
+                        Global.db.Products.Remove(SelectedProduct);
+                        Global.db.SaveChanges();
+                    }
+                }));
+            }
+        }
+
         public ProductsViewModel()
         {
             Global.db.Database.EnsureCreated();

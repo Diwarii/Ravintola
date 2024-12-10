@@ -25,7 +25,6 @@ namespace Ravintola.ViewModels
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
-            Global.db.Database.EnsureCreated();
         }
     }
 }
