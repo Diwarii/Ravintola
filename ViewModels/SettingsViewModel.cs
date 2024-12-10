@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.EntityFrameworkCore;
 using Ravintola.Models;
 using Ravintola.ViewModels;
 using Ravintola.Views;
@@ -12,14 +13,20 @@ namespace Ravintola.ViewModels
 {
     public class SettingsViewModel : BaseViewModel
     {
-        private Dish selectedDish;
-        public Dish SelectedDish
+
+        private RelayCommand openDeleteDish;
+        public RelayCommand OpenDeleteDish
         {
-            get => selectedDish;
-            set { selectedDish = value; OnPropertyChanged("SelectedDish"); }
+            get
+            {
+                return openDeleteDish ??
+                (openDeleteDish = new RelayCommand(obj =>
+                {
+                    RemoveDishView removeEditDishView = new RemoveDishView();
+                    removeEditDishView.ShowDialog();
+                }));
+            }
         }
-
-
         private RelayCommand _addDish;
         public RelayCommand AddDish // добавление обьекта в список
         {
@@ -46,33 +53,70 @@ namespace Ravintola.ViewModels
             }
         }
 
-        private RelayCommand openDeleteDish;
-        public RelayCommand OpenDeleteDish
+        private RelayCommand _openEditDish;
+        public RelayCommand OpenEditDish
         {
             get
             {
-                return openDeleteDish ??
-                (openDeleteDish = new RelayCommand(obj =>
+                return _openEditDish ??
+                (_openEditDish = new RelayCommand(obj =>
                 {
-                    RemoveEditDishView removeEditDishView = new RemoveEditDishView();
-                    removeEditDishView.ShowDialog();
+                    EditDishView edit = new EditDishView();
+                    edit.ShowDialog();
                 }));
             }
         }
 
-        private RelayCommand _deleteDish;
-        public RelayCommand DeleteDish
+        private RelayCommand _addProduct;
+        public RelayCommand AddProduct // добавление обьекта в список
         {
             get
             {
-                return _deleteDish ??
-                (_deleteDish = new RelayCommand(obj =>
+                return _addProduct ??
+                  (_addProduct = new RelayCommand(obj =>
+                  {
+                      AddingProductView addingProductView = new AddingProductView(new Product());
+                      if (addingProductView.ShowDialog() == true) // дописать обработку Exceptions
+                      {
+                          try
+                          {
+                              Product product = addingProductView.Product;
+                              Global.db.Products.Add(product);
+                              Global.db.SaveChanges();
+                          }
+                          catch
+                          {
+                              MessageBox.Show("Test");
+                          }
+                      }
+                  }));
+            }
+        }
+
+        private RelayCommand openDeleteProduct;
+        public RelayCommand OpenDeleteProduct
+        {
+            get
+            {
+                return openDeleteProduct ??
+                (openDeleteProduct = new RelayCommand(obj =>
                 {
-                    if (SelectedDish != null)
-                    {
-                        Global.db.Dishes.Remove(SelectedDish);
-                        Global.db.SaveChanges();
-                    }
+                    RemoveProductView removeProductView = new RemoveProductView();
+                    removeProductView.ShowDialog();
+                }));
+            }
+        }
+
+        private RelayCommand _openEditProduct;
+        public RelayCommand OpenEditProduct
+        {
+            get
+            {
+                return _openEditProduct ??
+                (_openEditProduct = new RelayCommand(obj =>
+                {
+                    EditProductView edit = new EditProductView();
+                    edit.ShowDialog();
                 }));
             }
         }

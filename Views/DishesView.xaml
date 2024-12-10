@@ -9,6 +9,15 @@
     <Grid>
 
         <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}">
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightGreen"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

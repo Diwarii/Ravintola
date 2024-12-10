@@ -76,7 +76,8 @@
             </Button>
             
             <Button Width="280" Height="50" Margin="0" Style="{StaticResource Button}"
-                    Content="EDIT DISH">
+                    Content="EDIT DISH"
+                    Command="{Binding OpenEditDish}">
                 
                 <Button.Resources>
                     
@@ -118,7 +119,8 @@
         <StackPanel Height="50" VerticalAlignment="Top" Margin="0,350,0,0" Orientation="Horizontal"
                     Width="870">
             
-            <Button Width="280" Height="50" Margin="0" Content="ADD PRODUCT">
+            <Button Width="280" Height="50" Margin="0" Content="ADD PRODUCT"
+                    Command="{Binding AddProduct}">
                 
                 <Button.Resources>
                     
@@ -138,7 +140,8 @@
                 
             </Button>
             
-            <Button Width="280" Height="50" Margin="15,0,15,0" Content="DELETE PRODUCT">
+            <Button Width="280" Height="50" Margin="15,0,15,0" Content="DELETE PRODUCT"
+                    Command="{Binding OpenDeleteProduct}">
                 
                 <Button.Resources>
                     
@@ -158,7 +161,8 @@
                 
             </Button>
             
-            <Button Width="280" Height="50" Margin="0" Content="EDIT PRODUCT">
+            <Button Width="280" Height="50" Margin="0" Content="EDIT PRODUCT"
+                    Command="{Binding OpenEditProduct}">
                 
                 <Button.Resources>
                     
