@@ -56,31 +56,18 @@ namespace Ravintola.ViewModels
                     Dish dish = obj as Dish;
                     if (dish == null) return;
 
-                    Dish vm = new Dish()
+                    //EditDishView editDishView = new EditDishView(vm);
+                    try
                     {
-                        FoodName = dish.FoodName,
-                        FoodCost = dish.FoodCost
-                    };
-                    EditDishView editDishView = new EditDishView(vm);
-
-                    if (editDishView.ShowDialog() == true)
+                        Global.db.Entry(dish).State = EntityState.Modified;
+                        Global.db.SaveChanges();
+                    }
+                    catch
                     {
-                        try
-                        {
-                            dish.FoodName = editDishView.Dish.FoodName;
-                            dish.FoodCost = editDishView.Dish.FoodCost;
-
-                            Global.db.Entry(dish).State = EntityState.Modified;
-                            Global.db.SaveChanges();
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Error");
-                        }
+                        MessageBox.Show("Error");
                     }
                 }));
             }
         }
-
     }
 }

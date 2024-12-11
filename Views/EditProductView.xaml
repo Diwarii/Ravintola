@@ -36,7 +36,7 @@
         <Button Content="Edit" Style="{StaticResource Button}"
         Width="230" Height="100" VerticalAlignment="Bottom"
         HorizontalAlignment="Left" Margin="35,0,0,19"
-        Command="{Binding EditDish}" CommandParameter="{Binding SelectedProduct}">
+        Command="{Binding EditProduct}" CommandParameter="{Binding SelectedProduct}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="25"/>

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
+using System.Windows;
 
 namespace Ravintola.ViewModels
 {
@@ -34,6 +35,30 @@ namespace Ravintola.ViewModels
                     {
                         Global.db.Products.Remove(SelectedProduct);
                         Global.db.SaveChanges();
+                    }
+                }));
+            }
+        }
+
+        private RelayCommand _editProduct;
+        public RelayCommand EditProduct
+        {
+            get
+            {
+                return _editProduct ??
+                (_editProduct = new RelayCommand(obj =>
+                {
+                    Product product = obj as Product;
+                    if (product == null) return;
+
+                    try
+                    {
+                        Global.db.Entry(product).State = EntityState.Modified;
+                        Global.db.SaveChanges();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error");
                     }
                 }));
             }
