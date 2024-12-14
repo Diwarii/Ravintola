@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ravintola.Models;
-using Ravintola.ViewModels;
 
 namespace Ravintola.Models
 {
-    public class Order : Property
+    public class DishesInOrder : Property
     {
         // Значение ID для Блюд
         public uint Id { get; set; }
@@ -37,13 +35,13 @@ namespace Ravintola.Models
             }
         }
 
-        public Order(uint id, string foodName, double foodCost)
+        public DishesInOrder(uint id, string foodName, double foodCost)
         {
             Id = id;
             FoodName = foodName;
             FoodCost = foodCost;
         }
-        public Order()
+        public DishesInOrder()
         {
 
         }

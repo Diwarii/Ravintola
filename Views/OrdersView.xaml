@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="980">
     <Grid>
-        <TextBlock Text="Заказики будут тут" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Green"/>
+        <ListView ItemsSource="{Binding OrderList}">
+            
+        </ListView>
     </Grid>
 </UserControl>

@@ -36,5 +36,12 @@ namespace Ravintola.Models
                 OnPropertyChanged("Name"); 
             }
         }
+
+        private double _cost;
+        public double Cost
+        {
+            get => _cost;
+            set { _cost = value; OnPropertyChanged("Cost"); }
+        }
     }
 }

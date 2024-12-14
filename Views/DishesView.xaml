@@ -8,24 +8,97 @@
              d:DesignHeight="768" d:DesignWidth="980">
     <Grid>
 
-        <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}">
-            <ListView.Resources>
-                <Style TargetType="ListViewItem">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGreen"/>
-                        </Trigger>
-                    </Style.Triggers>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right"
+               Margin="0,5,105,0"
+               Width="270" Height="90"
+               Background="#F5F5DC">
+            <Label.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
                 </Style>
-            </ListView.Resources>
+            </Label.Resources>
+            <Button Style="{StaticResource Button}" Content="Check Order" Width="240"
+                    Height="60"
+                    Margin="10,10,0,0"
+                    Command="{Binding ShowOrderWindow}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Label>
+
+        <Label Width="90" Height="90" HorizontalAlignment="Right"
+               VerticalAlignment="Top" Background="#F5F5DC"
+               Margin="0,5,5,0"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Label.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Label.Resources>
+
+            <Label Background="#A74444" Width="60" Height="60"
+                   FontSize="24" FontFamily="{StaticResource Montserrat}"
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                   Foreground="#F5F5DC" Content="{Binding DishesInOrderCount}"
+                   x:Name="DishesInOrderCount">
+                <Label.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Label.Resources>
+            </Label>
+            
+        </Label>
+        
+        <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}"
+                  Margin="0,100,0,0" x:Name="DishList">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Button Width="150" Height="200">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=FoodName}"/>
-                                <TextBlock Text="{Binding Path=FoodCost}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="700" Height="50" Style="{StaticResource Button}"
+                                Margin="15,15,15,25">
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="25"/>
+                                </Style>
+                            </Button.Resources>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=FoodName}"
+                                           FontSize="32" FontFamily="{StaticResource Montserrat}"
+                                           HorizontalAlignment="Center"/>
                             </StackPanel>
+
+                        </Button>
+
+                        <Label Content="{Binding Path=FoodCost}"
+                               FontSize="24" FontFamily="{StaticResource Montserrat}"
+                               HorizontalAlignment="Center" VerticalContentAlignment="Center"
+                               Background="#A74444" Width="100"
+                               Height="50" Margin="15,15,15,25"
+                               HorizontalContentAlignment="Center"
+                               Foreground="#F5F5DC">
+                            <Label.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="25"/>
+                                </Style>
+                            </Label.Resources>
+                        </Label>
+
+                        <Button Margin="0,0,0,10" FontSize="18"
+                                Width="70" Height="50" Content="+"
+                                Style="{StaticResource Button}"
+                                Command="{Binding ElementName=DishList, Path=DataContext.AddToOrder}"
+                                CommandParameter="{Binding}">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="25"/>
+                                </Style>
+                            </Button.Resources>
                         </Button>
                     </StackPanel>
                 </DataTemplate>

@@ -10,19 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.EntityFrameworkCore;
 using Ravintola.ViewModels;
 
 namespace Ravintola.Views
 {
     /// <summary>
-    /// Логика взаимодействия для DishesView.xaml
+    /// Логика взаимодействия для CheckOrderView.xaml
     /// </summary>
-    public partial class DishesView : UserControl
+    public partial class CheckOrderView : Window
     {
-        public DishesView()
+        public CheckOrderView()
         {
             InitializeComponent();
             DataContext = new DishesViewModel();

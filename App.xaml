@@ -37,7 +37,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!--DataTemplate-->
         <DataTemplate DataType="{x:Type viewmodels:DishesViewModel}">
             <views:DishesView/>
