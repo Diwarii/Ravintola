@@ -73,24 +73,11 @@
                 </StackPanel>
 
             </StackPanel>
-            
-            <!--Кнопка профиля администратора-->
-            <Button Content="PROFILE" Style="{StaticResource Button}"
-                    VerticalAlignment="Bottom"
-                    Margin="0,0,0,25"
-                    Width="260"
-                    Command="{Binding UpdateViewCommand}" CommandParameter="Profile">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            
+
             <!--Кнопка настроек для добавления элементов в блюда и продукты-->
             <Button Content="SETTINGS" Style="{StaticResource Button}"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,0,100"
+                    Margin="0,0,0,25"
                     Width="260"
                     Command="{Binding UpdateViewCommand}" CommandParameter="Settings">
                 <Button.Resources>
