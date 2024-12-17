@@ -7,8 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="980">
     <Grid>
-        <ListView ItemsSource="{Binding OrderList}">
-            
+        <ListView ItemsSource="{Binding Orders}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="Заказик"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </UserControl>

@@ -23,7 +23,7 @@ namespace Ravintola.Views
         public CheckOrderView()
         {
             InitializeComponent();
-            DataContext = new DishesViewModel();
+            DataContext = new CheckOrderViewModel();
         }
     }
 }

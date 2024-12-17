@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace Ravintola.ViewModels
 {
-    class DishesViewModel : BaseViewModel
+    public class DishesViewModel : BaseViewModel
     {
         private Dish selectedDish;
         public Dish SelectedDish
@@ -21,15 +21,11 @@ namespace Ravintola.ViewModels
             set { selectedDish = value; OnPropertyChanged("SelectedDish"); }
         }
         public ObservableCollection<Dish> Dishes { get; set; } = new ObservableCollection<Dish>();
-        public ObservableCollection<DishesInOrder> dishesInOrder { get; set; } = new ObservableCollection<DishesInOrder>();
         public DishesViewModel()
         {
             Global.db.Database.EnsureCreated();
             Global.db.Dishes.Load();
-            Global.db.DishesInOrder.Load();
-            Global.db.Orders.Load();
             Dishes = Global.db.Dishes.Local.ToObservableCollection();
-            dishesInOrder = Global.db.DishesInOrder.Local.ToObservableCollection();
         }
 
         private RelayCommand _deleteDish;
@@ -81,7 +77,19 @@ namespace Ravintola.ViewModels
             set { _dishesInOrderCount = value; OnPropertyChanged(); }
         }
 
-        public CheckOrderViewModel CheckOrderViewModel = new CheckOrderViewModel();
+        private double _dishesCostInOrder;
+        public double DishesCostInOrder
+        {
+            get => _dishesCostInOrder;
+            set { _dishesCostInOrder = value; OnPropertyChanged("DishesCostInOrder"); }
+        }
+
+        private string costInOrder;
+        public string CostInOrder
+        {
+            get => costInOrder;
+            set { costInOrder = value; OnPropertyChanged("CostInOrder"); }
+        }
 
         private RelayCommand _addToOrder;
         public RelayCommand AddToOrder
@@ -94,17 +102,10 @@ namespace Ravintola.ViewModels
                     Dish dish = obj as Dish;
                     if (dish == null) return;
 
-                    DishesInOrder dio = new DishesInOrder()
-                    {
-                        Id = 0,
-                        FoodName = dish.FoodName,
-                        FoodCost = dish.FoodCost
-                    };
-
-
                     DishesInOrderCount++;
-                    Global.db.DishesInOrder.Add(dio);
-                    Global.db.SaveChanges();
+                    DishesCostInOrder = DishesCostInOrder + dish.FoodCost;
+                    CostInOrder = $"{DishesCostInOrder} ₽";
+                    Global.Dishes.Add(dish);
                 }));
             }
         }

@@ -9,7 +9,7 @@
     <Grid>
 
         <Label VerticalAlignment="Top" HorizontalAlignment="Right"
-               Margin="0,5,105,0"
+               Margin="0,5,305,0"
                Width="270" Height="90"
                Background="#F5F5DC">
             <Label.Resources>
@@ -31,7 +31,7 @@
 
         <Label Width="90" Height="90" HorizontalAlignment="Right"
                VerticalAlignment="Top" Background="#F5F5DC"
-               Margin="0,5,5,0"
+               Margin="0,5,210,0"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <Label.Resources>
                 <Style TargetType="Border">
@@ -52,7 +52,29 @@
             </Label>
             
         </Label>
-        
+
+        <Label VerticalAlignment="Top" HorizontalAlignment="Right"
+               Margin="0,5,5,0"
+               Width="200" Height="90"
+               Background="#F5F5DC">
+            <Label.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Label.Resources>
+            <Label Content="{Binding CostInOrder}" Width="170"
+                   Height="60" Background="#A74444" VerticalContentAlignment="Center"
+                   Margin="10,10,0,0" HorizontalContentAlignment="Center"
+                   FontFamily="{StaticResource Montserrat}" FontSize="24"
+                   Foreground="#F5F5DC">
+                <Label.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </Label.Resources>
+            </Label>
+        </Label>
+
         <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}"
                   Margin="0,100,0,0" x:Name="DishList">
             <ListView.ItemTemplate>

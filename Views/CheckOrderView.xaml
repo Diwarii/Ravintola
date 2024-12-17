@@ -14,6 +14,9 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
+        <Border Background="#F5F5DC" Grid.Row="0"/>
+        <Border Background="#F5F5DC" Grid.Row="2"/>
+
         <Label Grid.Row="0" Content="Order details" FontFamily="{StaticResource Montserrat}"
                FontSize="20" Background="#A74444" Width="150" Height="50"
                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -26,13 +29,50 @@
         </Label>
 
         <ListView Grid.Row="1" x:Name="DishesInOrder"
-                  ItemsSource="{Binding dishesInOrder}">
+                  ItemsSource="{Binding Dishes}" Background="#881A1A">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Background="#F5F5DC" Width="100" Height="30" Margin="5"
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <Label.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </Label.Resources>
+                                <TextBlock Text="{Binding FoodName}" FontFamily="{StaticResource Montserrat}"/>
+                            </Label>
+
+                            <Label Background="#F5F5DC" Width="100" Height="30" Margin="5"
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <Label.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </Label.Resources>
+                                <TextBlock Text="{Binding FoodCost}" FontFamily="{StaticResource Montserrat}"/>
+                            </Label>
+                        </StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <Button Grid.Row="2" Style="{StaticResource Button}"
-                VerticalAlignment="Center" Margin="20,0,20,0"
-                Content="Save order"
-                Command="{Binding SaveOrder}">
+                VerticalAlignment="Center" Margin="10,0,10,0"
+                Content="Save order" Width="180" HorizontalAlignment="Left"
+                Command="{Binding SaveOrder}" IsDefault="True">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="2" Width="180" Margin="10,0,10,0" Style="{StaticResource Button}"
+                Content="Cancel" IsCancel="True" HorizontalAlignment="Right">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="25"/>
