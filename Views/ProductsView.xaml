@@ -10,13 +10,37 @@
         <ListView ItemsSource="{Binding Products}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Button Width="150" Height="200">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=Name}"/>
-                                <TextBlock Text="{Binding Path=Count}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="700" Height="50" Style="{StaticResource Button}"
+                                Margin="15,15,15,25">
+
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="25"/>
+                                </Style>
+                            </Button.Resources>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Name}"
+                                           FontSize="32" FontFamily="{StaticResource Montserrat}"
+                                           HorizontalAlignment="Center"/>
                             </StackPanel>
+
                         </Button>
+
+                        <Label Content="{Binding Path=Count}"
+                               FontSize="24" FontFamily="{StaticResource Montserrat}"
+                               HorizontalAlignment="Center" VerticalContentAlignment="Center"
+                               Background="#A74444" Width="100"
+                               Height="50" Margin="15,15,15,25"
+                               HorizontalContentAlignment="Center"
+                               Foreground="#F5F5DC">
+                            <Label.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="25"/>
+                                </Style>
+                            </Label.Resources>
+                        </Label>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

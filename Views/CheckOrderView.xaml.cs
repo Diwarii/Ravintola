@@ -10,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ravintola.ViewModels;
 
 namespace Ravintola.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ProfileView.xaml
+    /// Логика взаимодействия для CheckOrderView.xaml
     /// </summary>
-    public partial class ProfileView : UserControl
+    public partial class CheckOrderView : Window
     {
-        public ProfileView()
+        public CheckOrderView()
         {
             InitializeComponent();
+            DataContext = new CheckOrderViewModel();
         }
     }
 }

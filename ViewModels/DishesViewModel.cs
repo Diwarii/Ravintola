@@ -5,13 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace Ravintola.ViewModels
 {
-    class DishesViewModel : BaseViewModel
+    public class DishesViewModel : BaseViewModel
     {
         private Dish selectedDish;
         public Dish SelectedDish
@@ -20,7 +21,6 @@ namespace Ravintola.ViewModels
             set { selectedDish = value; OnPropertyChanged("SelectedDish"); }
         }
         public ObservableCollection<Dish> Dishes { get; set; } = new ObservableCollection<Dish>();
-        public ProductsViewModel Products = new ProductsViewModel();
         public DishesViewModel()
         {
             Global.db.Database.EnsureCreated();
@@ -66,6 +66,60 @@ namespace Ravintola.ViewModels
                     {
                         MessageBox.Show("Error");
                     }
+                }));
+            }
+        }
+
+        private int _dishesInOrderCount;
+        public int DishesInOrderCount
+        {
+            get => _dishesInOrderCount;
+            set { _dishesInOrderCount = value; OnPropertyChanged(); }
+        }
+
+        private double _dishesCostInOrder;
+        public double DishesCostInOrder
+        {
+            get => _dishesCostInOrder;
+            set { _dishesCostInOrder = value; OnPropertyChanged("DishesCostInOrder"); }
+        }
+
+        private string costInOrder;
+        public string CostInOrder
+        {
+            get => costInOrder;
+            set { costInOrder = value; OnPropertyChanged("CostInOrder"); }
+        }
+
+        private RelayCommand _addToOrder;
+        public RelayCommand AddToOrder
+        {
+            get
+            {
+                return _addToOrder ??
+                (_addToOrder = new RelayCommand(obj =>
+                {
+                    Dish dish = obj as Dish;
+                    if (dish == null) return;
+
+                    DishesInOrderCount++;
+                    DishesCostInOrder = DishesCostInOrder + dish.FoodCost;
+                    CostInOrder = $"{DishesCostInOrder} ₽";
+                    Global.Dishes.Add(dish);
+                }));
+            }
+        }
+
+        private RelayCommand _showOrderWindow;
+        public RelayCommand ShowOrderWindow
+        {
+            get
+            {
+                return _showOrderWindow ??
+                (_showOrderWindow = new RelayCommand(obj =>
+                {
+                    CheckOrderView vm = new CheckOrderView();
+                    vm.Show();
                 }));
             }
         }

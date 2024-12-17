@@ -37,7 +37,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!--DataTemplate-->
         <DataTemplate DataType="{x:Type viewmodels:DishesViewModel}">
             <views:DishesView/>
@@ -55,13 +55,9 @@
             <views:ReportsView/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodels:ProfileViewModel}">
-            <views:ProfileView/>
-        </DataTemplate>
-
         <DataTemplate DataType="{x:Type viewmodels:SettingsViewModel}">
             <views:SettingsView/>
         </DataTemplate>
-        
+
     </Application.Resources>
 </Application>

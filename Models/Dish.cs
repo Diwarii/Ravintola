@@ -36,15 +36,25 @@ namespace Ravintola.Models
             } 
         }
 
-        public List<Product> Products { get; set; }
+        //public List<Product> Products { get; set; }
 
-        public Dish(uint id, string foodName, double foodCost, List<Product> products)
+        //public Dish(uint id, string foodName, double foodCost, List<Product> products)
+        //{
+        //    Id = id;
+        //    FoodName = foodName;
+        //    FoodCost = foodCost;
+        //    Products = products;
+        //}
+
+        public Dish(uint id, string foodName, double foodCost)
         {
             Id = id;
             FoodName = foodName;
             FoodCost = foodCost;
-            Products = products;
         }
-        public Dish() { }
+        public Dish()
+        {
+
+        }
     }
 }
